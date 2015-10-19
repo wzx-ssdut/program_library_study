@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# 全静态
+g++ -o hello_full_static hello.cpp -static -pthread -lrt -ldl
+
+# 全动态
+g++ -o hello_full_dynamic hello.cpp -pthread -lrt -ldl
+
+# 半静态
+ln -s `g++ -print-file-name=libstdc++.a`
+g++ -o hello_half_static hello.cpp -static-libgcc -L. -pthread -lrt -ldl
+
+exit 0
