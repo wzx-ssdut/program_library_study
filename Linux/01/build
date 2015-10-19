@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# 第一种方式，直接编译链接，生成可执行文件
+gcc -o ztest *.c
+
+# 相当于如下
+gcc -O -c *.c
+gcc -o ztest *.o
