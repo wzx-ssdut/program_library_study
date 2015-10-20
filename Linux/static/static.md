@@ -20,3 +20,4 @@ gcc -o ztest ztest.c -static -lzmath -L.
 ```
 gcc -o ztest -static -lzmath -L. ztest.c
 ```
+
