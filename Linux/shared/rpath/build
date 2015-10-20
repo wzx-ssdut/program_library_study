@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# 生成目标文件
+gcc -o add.o -fPIC -c add.c
+gcc -o sub.o -fPIC -c sub.c
+
+# 生成共享库
+gcc -shared add.o sub.o -o librmath.so
+
+# 编译可执行程序
+# -lrmath -L.     =>  指定链接的库文件，以及库文件所在的目录
+# -Wl,-rpath=./   =>  指定运行时在可执行文件所在的目录下查找共享库
+gcc ztest.c -o rtest -lrmath -L. -Wl,-rpath=./
+
+exit 0
