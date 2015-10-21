@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# 创建archive或向archive中添加文件
+ar -rcs test.archive first.txt  HelloWorld.java main.c
+
+# 从archive中删除文件
+ar -d test.archive first.txt
+
+# 查看archive
+ar -rcs test.archive
+
+# 解压archive
+ar -x test.archive
+
+exit 0

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# 预处理：完成宏定义的替换，去掉所有注释信息。
+# -E: Preprocess only; do not compile, assemble or link
+
+# 编译：经过此法分析、语法分析和语义分析，将C代码转换成汇编指令。
+# -S: Compile only; do not assemble or link
+
+# 汇编：将汇编代码转化为机器可以执行的机器指令。
+# -c: Compile and assemble, but do not link
+
+gcc -o add.i -E add.c
+gcc -o add.s -S add.i
+gcc -o add.o -c add.s
+
+gcc -o sub.i -E sub.c
+gcc -o sub.s -S sub.i
+gcc -o sub.o -c sub.s
+
+gcc -o main.i -E main.c
+gcc -o main.s -S main.i
+gcc -o main.o -c main.s
+
+# 链接：.o文件还不能够被计算机所执行，必须转换为可执行的二进制文件
+# 才能被装载到内存中执行。而.o文件转换成二进制文件的过程就叫做链接。
+# 使用readelf -h命令查看文件，可以得到文件类型
+# readelf -h *.o   =>    Type:  REL (Relocatable file)
+# readelf -h test     =>    Type:  EXEC (Executable file)
+gcc -o hello hello.o
+
+# 使用下面的命令可以查看文件信息
+#objdump -h *.o
+#readelf -h *.o
+
+exit 0

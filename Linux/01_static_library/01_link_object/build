@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 编译
+gcc -o test.o -c test.c
+
+# 链接
+gcc -o test test.o add.o sub.o
+
+exit 0

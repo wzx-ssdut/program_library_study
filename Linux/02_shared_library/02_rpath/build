@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 指定程序运行时从当前目录加载共享库
+gcc -o ztest ztest.c -Wl,-rpath=../lib/ -lzmath -L./lib
+
+# 移动可执行到bin下
+mv ztest bin/
+
+exit 0

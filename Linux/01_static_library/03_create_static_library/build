@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# 生成.o文件
+gcc -o add.o -c add.c
+gcc -o sub.o -c sub.c
+
+# 生成静态库
+ar -rcs libzmath.a add.o sub.o
+
+
+# 现在，只需要zmath.h和libzmath.a这两个文件，就可以使用我们的数学库了。。
+
+exit 0

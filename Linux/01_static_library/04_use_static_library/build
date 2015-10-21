@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 首先，复制zmath.h和libzmath.a这两个文件到当前目录
+
+# 第一种方法
+gcc -o ztest ztest.c libzmath.a
+
+exit 0
+
