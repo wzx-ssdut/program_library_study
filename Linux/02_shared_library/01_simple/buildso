@@ -4,8 +4,9 @@
 gcc -fPIC -o add.o -c add.c
 gcc -fPIC -o sub.o -c sub.c
 
-
 # 生成共享库
 gcc -shared -o libzmath.so add.o sub.o
+
+rm *.o
 
 exit 0

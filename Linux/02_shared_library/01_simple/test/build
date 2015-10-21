@@ -3,7 +3,4 @@
 # 编译
 gcc -o ztest ztest.c -lzmath -L.
 
-# 运行
-./ztest
-
 exit 0

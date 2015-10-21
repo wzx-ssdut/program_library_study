@@ -3,8 +3,6 @@
 # 设置LD_LIBRARY_PATH，在当前目录下查找libzmath.so
 export LD_LIBRARY_PATH=.
 
-ldd ztest
-
 # 运行程序
 ./ztest
 
