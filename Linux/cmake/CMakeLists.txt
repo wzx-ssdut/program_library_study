@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(libzmath C)
+# project(<project_name> [language_name1 language_name2 ...])
+# 这条指令隐式定义了两个变量，并分别赋值:
+# <project_name>_BINARY_DIR
+# <project_name>_SOURCE_DIR
+
 
 # 生成的库名
 set(ZMATH_LIB_NAME zmath)
@@ -16,6 +21,11 @@ option(ZMATH_SHARED "Build shared lib" ON)
 option(ZMATH_STATIC "Build static lib" ON)
 option(ZMATH_TESTS "Build tests" ON)
 
+
+# 编译选项
+add_definitions(-DSOME_MACRO)
+set(CMAKE_C_FLAGS_DEBUG "-g -Wall -DZMATH_DEBUG=1")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-exceptions -std=c11")
 
 set(ZMATH_PUBLIC_HEADERS
     src/zmath.h
@@ -71,7 +81,8 @@ if(ZMATH_TESTS)
     )
     target_link_libraries(${ZMATH_TESTS_NAME_STATIC} ${ZMATH_LIB_NAME_STATIC})
 
-    # 测试动态库
+    # 测试动态库，结果比较奇怪，但是由于动态库的特性，一般不直接引用
+    # 下面的例子，默认使用了rpath
     set(ZMATH_TESTS_NAME_SHARED ${ZMATH_LIB_NAME}_test_shared)
     add_executable(${ZMATH_TESTS_NAME_SHARED}
         ${ZMATH_TEST_SOURCES}
