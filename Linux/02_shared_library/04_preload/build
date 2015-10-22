@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gcc -fPIC -c override.c
+gcc -shared -o liboverride.so override.o
+rm *.o
+
+exit 0

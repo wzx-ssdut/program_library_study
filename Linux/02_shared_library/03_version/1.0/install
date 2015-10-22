@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Install libzmath.so.1.0.0 to /usr/local/lib/libzmath.so.1.0.0"
+sudo cp libzmath.so.1.0.0 /usr/local/lib
+
+echo "Generate soname for /usr/local/lib/libzmath.so.1.0.0"
+sudo ldconfig
+
+echo "Install zmath.h to /usr/local/include/zmath.h"
+sudo cp zmath.h /usr/local/include
+
+exit 0

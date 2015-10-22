@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 生成目标文件
+gcc -fPIC -c *.c
+
+# 生成共享库
+gcc -shared -Wl,-soname=libzmath.so.1 -o libzmath.so.1.0.0 *.o
+
+exit 0

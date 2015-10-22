@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export LD_PRELOAD=./liboverride.so
+./ztest2
+
+exit 0

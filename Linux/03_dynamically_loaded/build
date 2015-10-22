@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm dlzmath
+gcc -o dlzmath dlzmath.c -ldl
+
+exit 0
