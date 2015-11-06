@@ -14,7 +14,8 @@ int main(void) {
 
     //handle = dlopen("libzmath.so", RTLD_LAZY); // linker name
     //handle = dlopen("libzmath.so.1", RTLD_LAZY); // soname
-    handle = dlopen("libzmath.so.1.0.0", RTLD_LAZY); // real name : cannot find
+    //handle = dlopen("libzmath.so.1.0.0", RTLD_LAZY); // real name : cannot find
+	// 使用命令strings /etc/ld.so.cache | grep libzmath可以查看能使用的名称
     if (!handle) {
         fputs(dlerror(), stderr);
         exit(1);
